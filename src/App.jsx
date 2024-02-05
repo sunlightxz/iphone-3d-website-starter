@@ -13,24 +13,26 @@ import Feedback from './assets/component/Feedback';
 
 function App() {
   const [showImage, setShowImage] = useState(false);
+  const [cursorX, setCursorX] = useState();
+  const [cursorY, setCursorY] = useState();
 
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      const aboutSectionOffset = document.getElementById('about').offsetTop;
-
-      setShowImage(scrollPosition < aboutSectionOffset);
+    const handleMouseMove = (e) => {
+      setCursorX(e.pageX);
+      setCursorY(e.pageY);
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('mousemove', handleMouseMove);
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('mousemove', handleMouseMove);
     };
   }, []);
 
+
+
   return (
-    <main className='mx-auto p-[2px] xs:px-2 sm:px-4 md:px-6 max-w-7xl'>
+    <main className='mx-auto relative p-[2px] xs:px-2 sm:px-4 md:px-6 max-w-7xl'>
       <Nav />
       <Hero />
       {/* {showImage && <WebgiViewer />} */}
@@ -41,6 +43,8 @@ function App() {
       <Faq/>
       <Contact/>
       <Footer />
+      <div className="cursor"style={{ left: cursorX + 'px', top: cursorY + 'px' }}>
+      </div>
     </main>
   );
 }
