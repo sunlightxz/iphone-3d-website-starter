@@ -15,7 +15,7 @@ const Footer = () => {
             </div>
             <div className="flex flex-row justify-between gap-16">
               <div className="flex flex-col ">
-                <span>About Us</span>
+                <span>AboutUs</span>
                 <a
                   href=""
                   className="text-gray-400 hover:text-gray-500 mb-3 mt-4"
