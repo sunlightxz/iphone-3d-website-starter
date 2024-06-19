@@ -48,7 +48,7 @@ const Footer = () => {
                 </a>
               </div>
               <div className="flex flex-col ">
-                <span>help</span>
+                <span>Help</span>
                 <a
                   href=""
                   className="text-gray-400 hover:text-gray-500 mb-3 mt-4"
